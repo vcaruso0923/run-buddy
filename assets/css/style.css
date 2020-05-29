@@ -345,6 +345,7 @@ section {
     padding: 15px;
     align-items: flex-end;
     position: relative;
+    overflow: hidden;
 }
 
 .trainer-1 {
@@ -364,11 +365,25 @@ section {
     line-height: 1.3;
 }
 
+.trainer-bio h3 {
+    font-size: 28px;
+    display: none;
+}
+  
+.trainer-bio h4 {
+    font-weight: lighter;
+    font-size: 22px;
+    margin-bottom: 15px;
+    display: none;
+}
+
 .trainer-img h3 {
     font-size: 28px;
     position: relative;
     z-index: 8888;
     margin-bottom: 5px;
+    top: 200px;
+    transition: 0.6s;
 }
   
 .trainer-img h4 {
@@ -377,6 +392,13 @@ section {
     margin-bottom: 15px;
     position: relative;
     z-index: 8888;
+    top: 200px;
+    transition: 0.6s;
+    transition-delay: 0.1s;
+}
+
+.trainer:hover .trainer-img h3, .trainer:hover .trainer-img h4 {
+    top: 0;
 }
   
 .trainer-bio p {
@@ -387,10 +409,16 @@ section {
     content: "";
     height: 100%;
     width: 100%;
-    background: linear-gradient(rgba(252, 225, 56, 0.4), rgba(2, 78, 118, 0.4));
+    background: linear-gradient(rgba(252, 225, 56, 0.3), rgba(2, 78, 118));
     position: absolute;
     top: 0;
     left: 0;
+    opacity: 0;
+    transition: .5s;
+}
+
+.trainer:hover .trainer-img::after {
+    opacity: 1;
 }
 
 .services {
@@ -625,6 +653,14 @@ section {
         writing-mode: unset;
         grid-column: 1 / -1;
         grid-row: -1;
+      }
+
+      .trainer-img::after, .trainer-img-h3, .trainer-img-h4 {
+          display: none;
+      }
+
+      .trainer-bio h3, .trainer-bio h4 {
+          display: block;
       }
     
   }
